@@ -1,22 +1,18 @@
-// Module IIFE
-// Immediately Invoked Function Expression
-(function (global) {
-  'use strict';
+'use strict';
 
-  const prepend = (container, elt) => {
-    if (container.children.length) {
-      container.insertBefore(elt, container.firstElementChild);
-    }
-    else {
-      container.appendChild(elt);
-    }
-  };
-  
-  const createRow = (container, val) => {
-    const liElt = document.createElement('li');
-    liElt.innerHTML = val;
-    prepend(container, liElt);
-  };
+const prepend = (container, elt) => {
+  if (container.children.length) {
+    container.insertBefore(elt, container.firstElementChild);
+  }
+  else {
+    container.appendChild(elt);
+  }
+};
 
-  global.createRow = createRow;
-}(window));
+const createRow = (container, val) => {
+  const liElt = document.createElement('li');
+  liElt.innerHTML = val;
+  prepend(container, liElt);
+};
+
+exports.createRow = createRow;
