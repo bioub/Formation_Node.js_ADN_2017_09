@@ -1,6 +1,6 @@
 const prenoms = ['Romain', 'Thomas'];
 
-prenoms.forEach(function(prenom, i) {
+prenoms.forEach(function(prenom) {
   console.log(prenom);
 });
 

@@ -3,6 +3,17 @@ const coords = {
   y: 20,
 };
 
+coords.z = 30;
+
+const json = JSON.stringify(coords);
+console.log(json);
+
+// ... réseau
+
+const coordsFromJson = JSON.parse(json);
+
+console.log(coordsFromJson.x); // 10
+
 for (let key in coords) {
   if (coords.hasOwnProperty(key)) {
     console.log(key);
@@ -75,5 +86,25 @@ class ContactES6 {
 
 const contact = new ContactES6({
   telephone: '0757645576U547'
-})
+});
 
+console.log(typeof ContactES6); // function
+console.log(typeof ContactES6.prototype.hello); // function
+
+class Formateur extends ContactES6 {
+  constructor(options) {
+    super(options);
+    this._specialite = options.specialite;
+  }
+
+  hello() {
+    return super.hello() + ', je suis spécialisé en ' + this._specialite;
+  }
+}
+
+const rom = new Formateur({
+  prenom: 'Romain',
+  specialite: 'JS',
+});
+
+console.log(rom.hello());
