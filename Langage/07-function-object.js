@@ -17,6 +17,7 @@ console.log(hello.call(contact, 'Paul', 'Pierre'));
 
 // Bonjour Paul, Pierre je m'appelle Romain
 console.log(hello.apply(contact, ['Paul', 'Pierre']));
+console.log(hello.call(contact, ...['Paul', 'Pierre']));
 
 
 const helloContact = hello.bind(contact);

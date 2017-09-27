@@ -1,3 +1,5 @@
+'use strict';
+
 const nbs = [2, 3, 4];
 
 console.log(nbs.map(nb => nb * 2).join(' - '));
@@ -31,4 +33,4 @@ console.log(
 // class Observable
 
 
-console.log(nbs.reduce((acc, nb) => acc + nb, 0).join(' - '));
+console.log(nbs.reduce((acc, nb) => acc + nb, 0));

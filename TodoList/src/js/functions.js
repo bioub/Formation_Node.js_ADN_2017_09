@@ -1,13 +1,4 @@
-'use strict';
-
-const prepend = (container, elt) => {
-  if (container.children.length) {
-    container.insertBefore(elt, container.firstElementChild);
-  }
-  else {
-    container.appendChild(elt);
-  }
-};
+import { prepend } from './dom-helpers';
 
 const createRow = (container, val) => {
   const liElt = document.createElement('li');
@@ -15,4 +6,4 @@ const createRow = (container, val) => {
   prepend(container, liElt);
 };
 
-exports.createRow = createRow;
+export { createRow }
