@@ -20,10 +20,15 @@ catch (err) {
   fs.mkdirSync(absDirPath);
 }
 
-logSync(absFilePath, 'Ligne 1');
-logSync(absFilePath, 'Ligne 2');
-logSync(absFilePath, 'Ligne 3');
-logSync(absFilePath, 'Ligne 4');
+try {
+  logSync(absFilePath, 'Ligne 1');
+  logSync(absFilePath, 'Ligne 2');
+  logSync(absFilePath, 'Ligne 3');
+  logSync(absFilePath, 'Ligne 4');
+}
+catch (err) {
+  console.log(err.message);
+}
 console.timeEnd('thread dispo');
 console.timeEnd('logs');
 console.log('Logs done');
