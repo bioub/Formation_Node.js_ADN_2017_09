@@ -34,5 +34,10 @@ const logs = async function() {
   catch (err) {
     console.log(err.message);
   }
+  console.timeEnd('logs');
 };
 
+console.time('thread dispo');
+console.time('logs');
+logs();
+console.timeEnd('thread dispo');
