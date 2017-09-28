@@ -17,22 +17,17 @@ const logPromise = (filePath, msg) => {
   });
 };
 
-const logs = async function() {
-  try {
-    await fs.stat(absDirPath);
-  }
-  catch (err) {
-    await fs.mkdir(absDirPath);
-  }
-  
-  try {
-    await logPromise(absFilePath, 'Ligne 1');
-    await logPromise(absFilePath, 'Ligne 2');
-    await logPromise(absFilePath, 'Ligne 3');
-    await logPromise(absFilePath, 'Ligne 4');
-  }
-  catch (err) {
-    console.log(err.message);
-  }
-};
-
+console.time('thread dispo');
+console.time('logs');
+fs.stat(absDirPath)
+  .catch(err => fs.mkdir(absDirPath))
+  .then(() => logPromise(absFilePath, 'Ligne 1'))
+  .then(() => logPromise(absFilePath, 'Ligne 2'))
+  .then(() => logPromise(absFilePath, 'Ligne 3'))
+  .then(() => logPromise(absFilePath, 'Ligne 4'))
+  .catch(err => console.log(err.message))
+  .then(() => {
+    console.timeEnd('logs');
+    console.log('Logs done');
+  });
+console.timeEnd('thread dispo');

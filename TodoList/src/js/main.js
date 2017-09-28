@@ -1,6 +1,5 @@
 import { createRow } from './functions';
 import format from 'date-fns/format';
-// import moment from 'moment';
 
 const todoForm = document.querySelector('.todo-form');
 const todoList = document.querySelector('.todo-list');

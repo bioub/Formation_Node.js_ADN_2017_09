@@ -10,7 +10,8 @@
     "webpack-dev-server": "^2.8.2"
   },
   "scripts": {
-    "build": "rimraf dist && webpack",
+    "build:dev": "rimraf dist && webpack",
+    "build:prod": "rimraf dist && webpack --optimize-minimize",
     "serve": "webpack-dev-server"
   },
   "dependencies": {
