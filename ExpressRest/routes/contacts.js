@@ -1,4 +1,5 @@
 const Router = require('express').Router;
+const bodyParser = require('body-parser');
 const authenticate = require('../middlewares/authenticate');
 const contactsCtrl = require('../controllers/contacts');
 
@@ -10,11 +11,15 @@ routes.get('/',
 );
 
 // Add
-routes.post('/', authenticate, (req, res, next) => {});
+routes.post('/', 
+  authenticate,
+  bodyParser.json(),
+  contactsCtrl.add,
+);
 
 // Show
 routes.get('/:id', 
-  contactsCtrl.show
+  contactsCtrl.show,
 );
 
 // Replace
@@ -24,6 +29,9 @@ routes.put('/:id', authenticate, (req, res, next) => {});
 routes.patch('/:id', authenticate, (req, res, next) => {});
 
 // Remove
-routes.delete('/:id', authenticate, (req, res, next) => {});
+routes.delete('/:id', 
+  authenticate, 
+  contactsCtrl.remove,
+);
 
 module.exports = routes;
